@@ -12,6 +12,7 @@
 <body>
     {% for post in posts%}
         <h3>{{ post.title }}</h3>
+        {% if post.image %}<div><img src="{{ post.image.url }}" alt="" width="500" height="300"></div>{% endif %}
         <div>{{ post.text }}</div>
     {% endfor %}
 </body>

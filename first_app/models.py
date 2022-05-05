@@ -7,3 +7,4 @@ class Post(models.Model):
     title = models.CharField(max_length=1000, unique=False, blank=False, null=False)
     text = models.TextField(blank=False, null=False)
     is_public = models.BooleanField(default=True)  # по умолчанию публичный
+    image = models.ImageField(null=True, blank=True)
