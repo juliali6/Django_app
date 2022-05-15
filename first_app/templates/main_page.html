@@ -1,15 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>&#128293;{{ title }} </title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    {% if user.is_authenticated %}<div>You logged in as{{user.username }}</div>{% endif %}
+
     {% for post in posts%}
         <h3>{{ post.title }}</h3>
         {% if post.image %}<div><img src="{{ post.image.url }}" alt="" width="500" height="300"></div>{% endif %}
