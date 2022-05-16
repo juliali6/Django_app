@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.db import models
+from django.utils.html import mark_safe
 
 
 class Post(models.Model):
@@ -22,6 +23,4 @@ class Profile(models.Model):
         null=True
     )
     about = models.TextField(max_length=4096, blank=True, null=True)
-    github = models.URLField(blank=True, null=True)
-    f_app = models.ForeignKey('User', on_delete=models.CASCADE)
-
+    github_link = models.URLField(blank=True, null=True)
