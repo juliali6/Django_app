@@ -21,13 +21,17 @@ from django.urls import path
 
 from first_app.templates.views.views import main_page
 from views.auth import AuthView
+from views.main import PostListView
 from views.registration import RegistrationView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_page, name='main_page'),
     path('registration', RegistrationView.as_view(), name='reg_page'),
     path('login', AuthView.as_view(), name='login_page'),
+    # path('posts/', PostListView.as_view(), name='posts'),
+    # path('api/posts/', PostsView.as_view({'get': 'list', 'post': 'create', 'delete': 'destroy'}), name='api-posts'),
 ]
 
 if settings.DEBUG:

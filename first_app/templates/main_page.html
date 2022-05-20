@@ -1,16 +1,22 @@
 <!DOCTYPE html>
+{% load menu_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>&#128293;{{ title }} </title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    {% if user.is_authenticated %}<div>You logged in as{{user.username }}</div>{% endif %}
+<div id="main_menu">{% main_menu %}</div>
+<div id="user_menu">{% user_menu %}</div>
 
-    {% for post in posts%}
-        <h3>{{ post.title }}</h3>
-        {% if post.image %}<div><img src="{{ post.image.url }}" alt="" width="500" height="300"></div>{% endif %}
-        <div>{{ post.text }}</div>
-    {% endfor %}
+{% for post in posts %}
+    <h3>{{ post.title }}</h3>
+
+    {% if post.image %}
+        <div><a href="{{ post.image.url }}" target="_blank"><img src="{{ post.image.url }}" alt="" width="350px" height="350px"></a></div>
+    {% endif %}
+
+    <div>{{ post.text }}</div>
+{% endfor %}
 </body>
 </html>

@@ -12,6 +12,11 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True)  # по умолчанию публичный
     image = models.ImageField(null=True, blank=True)
 
+    def image_tag(self):
+        return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.image))
+
+    image_tag.short_description = 'Image'
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')

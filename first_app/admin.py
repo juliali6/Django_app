@@ -8,7 +8,7 @@ from .models import Profile, Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'created_at', 'title',)  # указывает какие поля отображать на странице списка объектов
     ordering = ('-created_at', '-id')  # сортировка по умолчанию
-    readonly_fields = ('created_at',)  # поле на просмотр без возможности изменения
+    readonly_fields = ('created_at', 'image_tag')  # поле на просмотр без возможности изменения
 
 
 admin.site.unregister(User)
