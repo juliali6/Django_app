@@ -37,6 +37,18 @@
             {% endif %}
         </span>
     </div>
+<div class="features">
+    <h1>Форма по добавлению статьи</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ post }}
+
+        <input type="text" placeholder="Title" class="form-control"><br>
+        <textarea class="form-control" placeholder="Text"></textarea>
+        <input type="text" placeholder="Image" class="form-control"><br>
+        <input type="submit" value="Save">
+    </form>
+</div>
 </div>
 </body>
 </html>

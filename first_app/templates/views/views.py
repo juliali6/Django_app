@@ -1,3 +1,4 @@
+from first_app.forms.posts import PostForm
 from first_app.models import Post
 
 from django.core.paginator import Paginator
@@ -16,3 +17,13 @@ def main_page(request):
 
     context = {'title': 'Hello TMS', 'posts': posts, 'page_obj': page_obj}
     return render(request, 'main_page.html', context)
+
+
+def create(request):
+    form = PostForm()
+
+    context = {
+        'post': form
+    }
+
+    return render(request, 'create.html', context)
