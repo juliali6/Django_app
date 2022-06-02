@@ -1,0 +1,15 @@
+{% extends 'main_page.html' %}
+{% block title %}
+	Site Blog - Tag detail
+{% endblock %}
+{% block content %}
+	<div>
+		<h3>Posts with tag <b>{{tag.title|title}}</b>:</h3>
+		<br/>
+		<div class="grid-x">
+		    {% for post in tag.posts.all %}
+				{% include 'blog/includes/post_card.html'%}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

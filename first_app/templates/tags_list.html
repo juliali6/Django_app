@@ -1,0 +1,23 @@
+{% extends 'main_page.html' %}
+{% block title %}
+	Site Blog - Tags list
+{% endblock %}
+{% block content %}
+	<div>
+		<div class="grid-x">
+		    {% for tag in tags %}
+			    <div class="cell small-12 medium-3 large-3">
+				      <div class="card">
+					        <div class="card-section">
+					        	<h4>
+						        	<a href="{{ tag.get_absolute_url }}" class="button">
+						        		{{ tag.title }}
+						        	</a>
+					        	</h4>
+					        </div>
+				      </div>
+			    </div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,5 +1,4 @@
-"""z22django URL Configuration
-
+"""tms_z22 URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
@@ -17,28 +16,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path
-
-from first_app.templates.views import views
-from first_app.templates.views.views import main_page
-from views.auth import AuthView
-from views.main import PostListView
-from views.registration import RegistrationView
+from django.urls import include, path
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_page, name='main_page'),
-    path('registration', RegistrationView.as_view(), name='reg_page'),
-    path('login', AuthView.as_view(), name='login_page'),
-    path('create', views.create, name='create')
-    # path('posts/', PostListView.as_view(), name='posts'),
-    # path('api/posts/', PostsView.as_view({'get': 'list', 'post': 'create', 'delete': 'destroy'}), name='api-posts'),
+    path('', include('first_app.urls')),
+    path('', include('media_app.urls')),
+    path('', include('tags_app.urls')),
+    path('', include('comments_app.urls')),
+    path('', include('likes_app.urls')),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
