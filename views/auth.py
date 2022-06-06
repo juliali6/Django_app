@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.views import View
 
-from first_app.forms.authorization import AuthForm
+from profile_app.forms.authorization import AuthForm
 
 
 class AuthView(View):

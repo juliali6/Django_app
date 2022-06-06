@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load menu_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New post</title>
+</head>
+<body>
+<div id="main_menu">{{ main_menu }}</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <h1>Add post</h1>
+        <h2>{{ create_post.as_p }}</h2>
+        <p><input type="submit" value="Save"></p>
+</form>
+</body>
+</html>

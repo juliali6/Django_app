@@ -1,13 +1,12 @@
 from django.views.generic import ListView
-from first_app.forms.posts import PostForm
 from first_app.models import Post
 
 from django.shortcuts import render, redirect
 
 
 def main_page(request):
-    posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all() # order_by = сортировка
-    # posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Нужно еще больше текста'} for _ in range(100))
+    posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()  # order_by = сортировка
+    # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Нужно еще больше текста'} for _ in range(100))
     # (создать посты не обращаясь к базе данных)
     # contact_list = Post.objects.all()
     # paginator = Paginator(contact_list, 3)
@@ -17,26 +16,6 @@ def main_page(request):
 
     context = {'title': 'Hello TMS', 'posts': posts}
     return render(request, 'main_page.html', context)
-
-
-def create(request):
-    error = ''
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-        else:
-            error = 'Form error'
-
-    form = PostForm()
-
-    context = {
-        'form': form,
-        'error': error
-    }
-
-    return render(request, 'create.html', context)
 
 
 class PostListView(ListView):

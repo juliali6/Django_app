@@ -8,17 +8,17 @@ from django.shortcuts import render
 
 def main_page(request):
     posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()  # order_by = сортировка
-    # posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Ќужно еще больше текста'} for _ in range(100))
+    # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Ќужно еще больше текста'} for _ in range(100))
     # (создать посты не обраща€сь к базе данных)
 
-    context = {'title': 'Hello TMS', 'posts.py': posts}
+    context = {'title': 'Hello TMS', 'create_posts.py': posts}
     return render(request, 'main_page.html', context)
 
 
 class PostListView(ListView):
     queryset = Post.objects.order_by('-created_at', '-id')
     template_name = 'main_page.html'
-    context_object_name = 'posts.py'
+    context_object_name = 'create_posts.py'
     http_method_names = ['get']
 
     def get_queryset(self):

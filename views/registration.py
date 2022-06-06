@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import View
 
-from first_app.forms.registration import RegistrationForm
+from profile_app.forms.registration import RegistrationForm
 
 
 class RegistrationView(View):

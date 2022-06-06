@@ -1,7 +1,7 @@
 from django.contrib.auth.admin import admin
-from django.contrib.auth.admin import UserAdmin as UserAdminBase
 from django.contrib.auth.models import User
-from .models import Profile, Post
+
+from first_app.models import Post
 
 
 @admin.register(Post)
@@ -13,13 +13,3 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.unregister(User)
 
-
-class ProfileInLine(admin.StackedInline):
-    model = Profile
-
-
-@admin.register(User)
-class UserAdmin(UserAdminBase):
-    inlines = [
-        ProfileInLine
-    ]
