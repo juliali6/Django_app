@@ -26,4 +26,12 @@ class PostSerializer(serializers.ModelSerializer):
     # media = serializers.URLField(source='file.file.url', read_only=True)
     media = MediaSerializer(source='file', allow_null=False, read_only=True)
     tag = TagSerializer(many=True, read_only=True)
-    comment = CommentSerializer(source='comment', many=True, read_only=True)
+    comment = CommentSerializer(many=True, read_only=True)
+    likes = serializers.SerializerMethodField()
+
+    def get_likes(self, instance) -> int:
+        return instance.like.count()
+
+    # def get_comment(self, instance) -> int:
+    #     return instance.comment.count()
+    #

@@ -25,6 +25,7 @@ from first_app.templates.views.delete_posts import DeletePostView
 from first_app.templates.views.posts import Posts
 
 from first_app.templates.views.tags import tags_list, tag_detail
+from first_app.templates.views.update_post import UpdatePostView
 from first_app.templates.views.views import main_page
 from views.main import PostListView
 
@@ -40,6 +41,7 @@ urlpatterns = [
     path('tag/<str:slug>', tag_detail, name='tag_detail'),
     path('posts/', Posts.as_view(), name='posts'),
     path('delete/<int:pk>/', DeletePostView.as_view(), name='delete_post'),
+    path('update/<int:pk>/', UpdatePostView.as_view(), name='update_post'),
 ]
 
 if settings.DEBUG:
