@@ -21,6 +21,7 @@ from django.urls import path, include
 
 from first_app.api.views.router import api_router
 from first_app.templates.views.create_post import CreatePost
+from first_app.templates.views.delete_posts import DeletePostView
 from first_app.templates.views.posts import Posts
 
 from first_app.templates.views.tags import tags_list, tag_detail
@@ -38,6 +39,7 @@ urlpatterns = [
     path('tags/', tags_list, name='tags_list'),
     path('tag/<str:slug>', tag_detail, name='tag_detail'),
     path('posts/', Posts.as_view(), name='posts'),
+    path('delete/<int:pk>/', DeletePostView.as_view(), name='delete_post'),
 ]
 
 if settings.DEBUG:
