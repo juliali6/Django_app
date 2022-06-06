@@ -20,28 +20,24 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
 from first_app.api.views.router import api_router
-from first_app.templates.views import views
-from first_app.templates.views.profile import Profile_User
+from first_app.templates.views.create_post import CreatePost
+from first_app.templates.views.posts import Posts
+
 from first_app.templates.views.tags import tags_list, tag_detail
-from first_app.templates.views.update_profile import user_redaction
 from first_app.templates.views.views import main_page
-from views.auth import AuthView
 from views.main import PostListView
-from views.registration import RegistrationView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', main_page, name='main_page'),
-    path('registration', RegistrationView.as_view(), name='reg_page'),
-    path('login', AuthView.as_view(), name='login_page'),
-    path('create', views.create, name='create'),
-    path('posts.py/', PostListView.as_view(), name='posts.py'),
-    path('update_profile/', user_redaction, name='update_profile.py'),
-    path('profile/', Profile_User.as_view(), name='profile_page'),
+    path('create', CreatePost.as_view, name='create'),
+    path('create_post/', CreatePost.as_view(), name='create_post'),
+    path('create_posts/', PostListView.as_view(), name='create_posts'),
     path('api/', include(api_router.urls)),
     path('tags/', tags_list, name='tags_list'),
     path('tag/<str:slug>', tag_detail, name='tag_detail'),
+    path('posts/', Posts.as_view(), name='posts'),
 ]
 
 if settings.DEBUG:
