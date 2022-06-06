@@ -11,5 +11,6 @@ class PostsViewSet(GenericViewSet, ListModelMixin, CreateModelMixin, DestroyMode
                    RetrieveModelMixin):
     serializer_class = PostSerializer
     queryset = Post.objects.filter(is_public=True)
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['created_at', 'id']
+    search_fields = ['id', 'title', 'text', 'user__username']
