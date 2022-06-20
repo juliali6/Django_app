@@ -20,6 +20,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
 from first_app.api.views.router import api_router
+from first_app.templates.views.audio import upload_file
 from first_app.templates.views.create_post import CreatePost
 from first_app.templates.views.delete_posts import DeletePostView
 from first_app.templates.views.posts import Posts
@@ -42,6 +43,7 @@ urlpatterns = [
     path('posts/', Posts.as_view(), name='posts'),
     path('delete/<int:pk>/', DeletePostView.as_view(), name='delete_post'),
     path('update/<int:pk>/', UpdatePostView.as_view(), name='update_post'),
+    path('audio/', upload_file, name='audio'),
 ]
 
 if settings.DEBUG:
