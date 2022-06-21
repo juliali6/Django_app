@@ -19,13 +19,13 @@ class RegistrationView(View):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            send_mail(
-                'Subject here',
-                'Here is the message.',
-                'from@example.com',
-                ['to@example.com'],
-                fail_silently=False,
-            )
+            # send_mail(
+            #     'Subject here',
+            #     'Here is the message.',
+            #     'from@example.com',
+            #     ['to@example.com'],
+            #     fail_silently=False,
+            # )
             return redirect('/')
 
         context = {

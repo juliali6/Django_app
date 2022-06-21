@@ -9,7 +9,6 @@
 <div id="main_menu">{{ main_menu }}</div>
 
     <form action="audio" method = "post" enctype="multipart/form-data">
-        {{ csrf_token }}
         {{ form }}
         <p><input type="submit" value="Save"></p>
     </form>

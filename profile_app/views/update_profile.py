@@ -8,11 +8,11 @@ class UserUpdate(View):
     @staticmethod
     def get(request):
         user_form = UpdateProfileForm(instance=request.user)
-        # profile_form = UpdateProForm(instance=request.user.profile)
+        profile_form = UpdateProForm(instance=request.user.profile)
         context = {
             'title': 'Editing profile',
             'user_form': user_form,
-            # 'profile_form': profile_form,
+            'profile_form': profile_form,
         }
         return render(request, 'update_profile.html', context)
 
@@ -23,4 +23,4 @@ class UserUpdate(View):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('Data yours')
+            return redirect('/')

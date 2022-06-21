@@ -6,14 +6,15 @@
     <title>Authorization</title>
 </head>
 <body>
-    {% if error %}
-        <div>Error login or password. Please, try again</div>
-    {% endif %}
+<div id="main_menu">{% main_menu %}</div>
+{% if error %}
+    <div>Error login or password. Please, try again</div>
+{% endif %}
 
-    <form method="post" action="/authorization">
+<form method="post" action="/login">
         {% csrf_token %}
         {{ auth_form }}
         <input type="submit" value="log in">
-    </form>
+</form>
 </body>
 </html>
