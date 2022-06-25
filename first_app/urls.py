@@ -43,7 +43,6 @@ urlpatterns = [
     path('posts/', Posts.as_view(), name='posts'),
     path('delete/<int:pk>/', DeletePostView.as_view(), name='delete_post'),
     path('update/<int:pk>/', UpdatePostView.as_view(), name='update_post'),
-    path('audio/', upload_file, name='audio'),
 ]
 
 if settings.DEBUG:

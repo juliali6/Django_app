@@ -15,7 +15,6 @@ class Post(models.Model):
     file = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True)
     tag = models.ManyToManyField('Tag', blank=True, related_name='tag_post')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    # voice = models.FileField(upload_to='uploads/')
 
     def image_tag(self):
         return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.image))
@@ -40,8 +39,13 @@ class Tag(models.Model):
         return '{}'.format(self.title)
 
 
-class AudioStore(models.Model):
-    record = models.FileField(upload_to='media/')
+class ImagePost(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_post')
+    image = models.ImageField(upload_to='posts/%Y', null=True, blank=True, verbose_name='Photo')
+
+    def get_absolute_url(self):
+        return f'/image{self.id}'
 
     class Meta:
-        db_table = 'Audio_store'
+        verbose_name = 'Photo post'
+        verbose_name_plural = 'Photo posts'

@@ -17,7 +17,9 @@ class CreatePost(View):
     def post(request):
         form = PostFormCreate(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
             return redirect('/')
 
         context = {
