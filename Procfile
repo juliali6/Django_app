@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn z22django.wsgi
+waitress-serve --listen=*:8000 myapp.wsgi:application
