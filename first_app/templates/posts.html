@@ -2,12 +2,19 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
-<p><a href="{% url 'add_post'%}">Add posts</a></p>
-{% include 'first_app/_posts.html' %}
+<p>
+    <a href="{% url 'add_post'%}">
+        <button type="button">Add post</button>
+    </a>
+</p>
+
 {% else %}
-    <p><a href="{% url 'login' %}">Authorizations</a></p>
-    <p><a href="{% url 'register' %}">Registrations</a></p>
+{% include 'first_app/posts.html' %}
 {% endif %}
 
+    <p><a href="{% url 'login' %}">Authorizations</a></p>
+    <p><a href="{% url 'register' %}">Registrations</a></p>
 
-{% endblock %}
+
+{% endblock content %}
+

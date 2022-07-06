@@ -15,34 +15,28 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
 from first_app.api.views.router import api_router
-from first_app.templates.views.audio import upload_file
 from first_app.templates.views.create_post import CreatePost
-from first_app.templates.views.delete_posts import DeletePostView
+from first_app.templates.views.delete_posts import delete_post
 from first_app.templates.views.posts import Posts
 
 from first_app.templates.views.tags import tags_list, tag_detail
-from first_app.templates.views.update_post import UpdatePostView
-from first_app.templates.views.views import main_page
-from views.main import PostListView
-
+from first_app.templates.views.views import MainPage, PostListView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', main_page, name='main_page'),
-    path('create', CreatePost.as_view, name='create'),
+    path('', MainPage.as_view(), name='main_page'),
     path('create_post/', CreatePost.as_view(), name='create_post'),
-    path('create_posts/', PostListView.as_view(), name='create_posts'),
+    path('posts_list/', PostListView.as_view(), name='posts_list'),
     path('api/', include(api_router.urls)),
     path('tags/', tags_list, name='tags_list'),
     path('tag/<str:slug>', tag_detail, name='tag_detail'),
     path('posts/', Posts.as_view(), name='posts'),
-    path('delete/<int:pk>/', DeletePostView.as_view(), name='delete_post'),
-    path('update/<int:pk>/', UpdatePostView.as_view(), name='update_post'),
+    path('delete/<int:pk>/', delete_post, name='delete_post'),
+
 ]
 
 if settings.DEBUG:

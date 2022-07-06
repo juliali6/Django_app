@@ -28,17 +28,6 @@ class Post(models.Model):
         return '{}'.format(self.title)
 
 
-class Tag(models.Model):
-    title = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=50, unique=True)
-
-    def get_absolute_url(self):
-        return reverse('tag_detail_url', kwargs={'slug': self.slug})
-
-    def __str__(self):
-        return '{}'.format(self.title)
-
-
 class ImagePost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_post')
     image = models.ImageField(upload_to='posts/%Y', null=True, blank=True, verbose_name='Photo')
@@ -49,3 +38,14 @@ class ImagePost(models.Model):
     class Meta:
         verbose_name = 'Photo post'
         verbose_name_plural = 'Photo posts'
+
+
+class Tag(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def get_absolute_url(self):
+        return reverse('tag_detail_url', kwargs={'slug': self.slug})
+
+    def __str__(self):
+        return '{}'.format(self.title)

@@ -5,3 +5,4 @@ drf-spectacular==0.22
 redis
 django-debug-toolbar==3.4.0
 gunicorn
+celery==5.2.7
