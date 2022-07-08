@@ -7,6 +7,7 @@ from profile_app.models import Profile
 
 @receiver(post_save, sender=User)
 def created_profile(sender, instance, created, *args, **kwargs):
+    """Function signals for creating profile."""
     if not created:
         return
 

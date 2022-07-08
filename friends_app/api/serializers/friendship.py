@@ -3,6 +3,8 @@ from friends_app.models import Friendship
 
 
 class FriendshipSerializer(serializers.ModelSerializer):
+    """Serializer for friendship."""
+
     class Meta:
         model = Friendship
         fields = '__all__'

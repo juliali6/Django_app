@@ -3,6 +3,8 @@ from likes_app.models import LikePost, LikeComment
 
 
 class LikePostSerializer(serializers.ModelSerializer):
+    """Serializer for likes posts."""
+
     class Meta:
         model = LikePost
         fields = '__all__'
@@ -16,6 +18,8 @@ class LikePostSerializer(serializers.ModelSerializer):
 
 
 class LikeCommentSerializer(serializers.ModelSerializer):
+    """Serializer for likes comments."""
+
     class Meta:
         model = LikeComment
         fields = '__all__'

@@ -5,12 +5,16 @@ from profile_app.models import Profile
 
 
 class UpdateProfileForm(forms.ModelForm):
+    """Form for update profile."""
+
     class Meta:
         model = User
         fields = ['last_name', 'first_name', 'email']
 
 
 class UpdateProForm(forms.ModelForm):
+    """Form for update profile."""
+
     class Meta:
         model = Profile
         fields = ['avatar', 'phone']

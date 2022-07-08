@@ -15,3 +15,4 @@ class UserAdmin(UserAdminBase):
     inlines = [
         ProfileInLine
     ]
+

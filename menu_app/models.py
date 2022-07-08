@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Menu(models.Model):
+    """Model for menu."""
+
     menu_label = models.CharField(max_length=256, null=False, blank=False, unique=True)
 
     def __str__(self):
@@ -10,6 +12,8 @@ class Menu(models.Model):
 
 
 class MenuItem(models.Model):
+    """Model for menu items."""
+
     menu = models.ForeignKey(Menu, null=False, blank=False, on_delete=models.PROTECT, related_name='links')
     title = models.CharField(max_length=32, null=False, blank=False)
     url = models.CharField(max_length=256, null=False, blank=False)

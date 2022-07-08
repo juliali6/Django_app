@@ -7,6 +7,8 @@ from ...models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """Model serializer for post."""
+
     class Meta:
         model = Post
         exclude = ['is_public']

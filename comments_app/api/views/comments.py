@@ -7,6 +7,8 @@ from comments_app.models import Comment
 
 
 class CommentView(GenericViewSet, RetrieveModelMixin, ListModelMixin, CreateModelMixin, UpdateModelMixin):
+    """View for comments."""
+
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     filter_backends = [OrderingFilter]

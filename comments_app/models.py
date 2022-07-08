@@ -5,6 +5,8 @@ from first_app.models import Post
 
 
 class Comment(models.Model):
+    """Model for comments."""
+
     created = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField(blank=False, null=False)

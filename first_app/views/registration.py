@@ -5,6 +5,8 @@ from profile_app.forms.registration import RegistrationForm
 
 
 class RegistrationView(View):
+    """View for registration."""
+
     @staticmethod
     def get(request):
         form = RegistrationForm()

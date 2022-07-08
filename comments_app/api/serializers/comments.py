@@ -3,6 +3,8 @@ from ...models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    """Serializer for comments."""
+
     class Meta:
         model = Comment
         fields = '__all__'

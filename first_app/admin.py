@@ -12,4 +12,3 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.unregister(User)
-

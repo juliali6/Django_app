@@ -9,6 +9,8 @@ from ...models import Post
 
 class PostsViewSet(GenericViewSet, ListModelMixin, CreateModelMixin, DestroyModelMixin, UpdateModelMixin,
                    RetrieveModelMixin):
+    """View set for posts with using mixins."""
+
     serializer_class = PostSerializer
     queryset = Post.objects.filter(is_public=True)
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]

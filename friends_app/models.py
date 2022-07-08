@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Friendship(models.Model):
+    """Model for friendship."""
+
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver')
 

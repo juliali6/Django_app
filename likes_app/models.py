@@ -6,6 +6,8 @@ from first_app.models import Post
 
 
 class LikePost(models.Model):
+    """Model for like posts."""
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_like')
     like_post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
@@ -14,6 +16,8 @@ class LikePost(models.Model):
 
 
 class LikeComment(models.Model):
+    """Model for like comments."""
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_like')
     like_comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
 

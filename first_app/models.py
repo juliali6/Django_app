@@ -7,6 +7,8 @@ from media_app.models import Media
 
 
 class Post(models.Model):
+    """Model for posts."""
+
     objects = None
     created_at = models.DateTimeField(auto_now_add=True)  # время создания публикации
     title = models.CharField(max_length=1000, unique=False, blank=False, null=False)
@@ -29,6 +31,8 @@ class Post(models.Model):
 
 
 class ImagePost(models.Model):
+    """Model for post images"""
+
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_post')
     image = models.ImageField(upload_to='posts/%Y', null=True, blank=True, verbose_name='Photo')
 
@@ -41,6 +45,8 @@ class ImagePost(models.Model):
 
 
 class Tag(models.Model):
+    """Model for tags"""
+
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
 

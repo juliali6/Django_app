@@ -6,6 +6,8 @@ from profile_app.forms.authorization import AuthForm
 
 
 class AuthView(View):
+    """View for authorization."""
+
     @staticmethod
     def get(request):
         form = AuthForm()

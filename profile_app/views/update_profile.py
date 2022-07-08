@@ -4,6 +4,7 @@ from profile_app.forms.update_profile import UpdateProfileForm, UpdateProForm
 
 
 class UserUpdate(View):
+    """View for update profile."""
 
     @staticmethod
     def get(request):
