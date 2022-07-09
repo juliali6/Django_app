@@ -4,7 +4,8 @@ djangorestframework==3.13.1
 drf-spectacular==0.22
 redis
 django-debug-toolbar==3.4.0
-gunicorn
+gunicorn==20.1.0
 celery==5.2.7
 python-dotenv==0.20.0
 django-heroku==0.3.1
+django-redis==5.2.0
