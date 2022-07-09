@@ -7,3 +7,4 @@ django-debug-toolbar==3.4.0
 gunicorn
 celery==5.2.7
 python-dotenv==0.20.0
+django-heroku==0.3.1

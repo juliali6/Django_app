@@ -17,7 +17,6 @@ from dotenv import load_dotenv
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from django.conf.global_settings import STATIC_ROOT, MEDIA_ROOT
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,7 +80,7 @@ ROOT_URLCONF = 'z22django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -169,12 +168,12 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'django-cache'
 
-EMAIL_USE_TLS = True
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = str(os.getenv('EMAIL_HOST'))
+EMAIL_PORT = 465
+EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))  # Enter your email address
+EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))  # Enter your email password
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 django_heroku.settings(locals())
 
