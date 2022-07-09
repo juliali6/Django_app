@@ -9,25 +9,39 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.conf.global_settings import STATIC_ROOT, MEDIA_ROOT
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load dotenv
+
+load_dotenv()
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)26hvc&h(b39vn6w%*rtszsl-j#-gxq$hsa5z@7r(7o0j5cshb'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+# Standard URL Login Required
+LOGIN_URL = '/authorization'
+LOGIN_REDIRECT_URL = '/authorization'
 
 
 # Application definition
@@ -161,6 +175,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+django_heroku.settings(locals())
 
 
 INTERNAL_IPS = [
