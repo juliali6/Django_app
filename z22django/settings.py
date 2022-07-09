@@ -12,12 +12,21 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 
 import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.conf.global_settings import STATIC_ROOT, MEDIA_ROOT
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Load dotenv
+load_dotenv()
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

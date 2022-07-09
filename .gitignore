@@ -51,6 +51,9 @@
 #
 ## Sphinx documentation
 #docs/_build/
-#
-## media files
-#media/
+
+media files
+media/
+
+.env
+
