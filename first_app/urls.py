@@ -15,27 +15,28 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
 from first_app.api.views.router import api_router
-from first_app.templates.views.create_post import CreatePost
-from first_app.templates.views.delete_posts import delete_post
-from first_app.templates.views.posts import Posts
-
-from first_app.templates.views.tags import tags_list, tag_detail
-from first_app.templates.views.views import MainPage, PostListView
+from first_app.views.create_post import CreatePost
+from first_app.views.delete_posts import delete_post
+from first_app.views.main import PostListView
+from first_app.views.posts import Posts
+from first_app.views.tags import tags_list, tag_detail
+from first_app.views.views import MainPage
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', MainPage.as_view(), name='main_page'),
-    path('create_post/', CreatePost.as_view(), name='create_post'),
+    path('create_post/', login_required(CreatePost.as_view()), name='create_post'),
     path('posts_list/', PostListView.as_view(), name='posts_list'),
     path('api/', include(api_router.urls)),
     path('tags/', tags_list, name='tags_list'),
     path('tag/<str:slug>', tag_detail, name='tag_detail'),
     path('posts/', Posts.as_view(), name='posts'),
-    path('delete/<int:pk>/', delete_post, name='delete_post'),
+    path('delete/<int:pk>/', login_required(delete_post), name='delete_post'),
 
 ]
 

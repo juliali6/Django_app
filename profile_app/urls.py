@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
@@ -13,10 +14,10 @@ from profile_app.views.update_profile import UserUpdate
 
 urlpatterns = [
     path('registration', RegistrationView.as_view(), name='reg_page'),
-    path('update_profile/', UserUpdate.as_view(), name='update_profile'),
+    path('profile/update', login_required(UserUpdate.as_view()), name='update_profile'),
     path('logout', LogoutUser.as_view(), name='logout_page'),
     path('login', AuthView.as_view(), name='login_page'),
-    path('profile/', ProfileUserView.as_view(), name='profile_page'),
+    path('profile/', login_required(ProfileUserView.as_view()), name='profile_page'),
 ]
 
 

@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'likes_app',
     'profile_app',
     'friends_app',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [

@@ -17,9 +17,8 @@
     {% if post.file %}
         <div><a href="{{ post.file.file.url }}" target="_blank"><img src="{{ post.file.file.url }}" alt="" width="350px" height="350px"></a></div>
     {% endif %}
-        <div><a href="{% url 'delete_post' post.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></div>
     <div>{{ post.text }}</div>
-        <p><input type="submit" value="It's just button"></p>
+        <div><a href="{% url 'delete_post' post.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></div>
 
 
 {% endfor %}
