@@ -77,10 +77,10 @@ media/
 
 
 Environments:
-env
-venv
-env/
-venv/
+.env
+.venv
+.env/
+.venv/
 
 celerybeat-schedule
 celerybeat.pid
