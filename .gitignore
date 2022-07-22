@@ -9,19 +9,24 @@ C extensions
 *.so
 
 Distribution / packaging
-bin/
+.Python
 build/
 develop-eggs/
 dist/
+downloads/
 eggs/
-lib/
+.eggs/
+venv/Lib/
 lib64/
 parts/
 sdist/
 var/
+wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 Installer logs
 pip-log.txt
@@ -52,16 +57,33 @@ Django stuff:
 Sphinx documentation
 docs/_build/
 
+Django:
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+Flask:
+instance/
+.webassets-cache
+
+IPython:
+profile_default/
+ipython_config.py
+
 media files
 media/
 
 .idea/
 
+
+Environments:
 .env
 .venv
 env/
 venv/
 ENV/
+env.bak/
+venv.bak/
 
 celerybeat-schedule
 celerybeat.pid
