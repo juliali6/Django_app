@@ -2,11 +2,14 @@ django==4.0.4
 Pillow==9.1.0
 djangorestframework==3.13.1
 drf-spectacular==0.22
-redis
 django-debug-toolbar==3.4.0
 gunicorn==20.1.0
 celery==5.2.7
+django-celery-results==2.2.0
+django-redis==5.2.0
+redis
 python-dotenv==0.20.0
 django-heroku==0.3.1
 django-redis==5.2.0
 django-celery-beat
+djangorestframework-simplejwt

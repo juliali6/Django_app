@@ -8,6 +8,7 @@ class LikePostSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikePost
         fields = '__all__'
+        read_only_fields = ['user']
         # read_only_fields = True
 
     # чтобы пользователь ничего не указывал
