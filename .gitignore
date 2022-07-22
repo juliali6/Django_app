@@ -55,5 +55,14 @@ docs/_build/
 media files
 media/
 
+.idea/
+
 .env
+.venv
+env/
+venv/
+ENV/
+
+celerybeat-schedule
+celerybeat.pid
 
