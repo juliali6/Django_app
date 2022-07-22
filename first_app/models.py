@@ -31,7 +31,7 @@ class Post(models.Model):
 
 
 class ImagePost(models.Model):
-    """Model for post images"""
+    """Model for post images."""
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_post')
     image = models.ImageField(upload_to='posts/', null=True, blank=True, verbose_name='Photo')
