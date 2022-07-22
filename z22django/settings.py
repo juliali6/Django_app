@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     'likes_app',
     'profile_app',
     'friends_app',
-    # 'user_app',
+    'user_app',
     'debug_toolbar',
     'django_celery_beat',
     'django_celery_results',
@@ -189,8 +189,6 @@ EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = True
 
 
-ALLOWED_HOSTS = ['*']
-
 django_heroku.settings(locals())
 
 
@@ -200,7 +198,7 @@ INTERNAL_IPS = [
 
 # AUTH API:
 
-# AUTH_USER_MODEL = 'user_app.User'
+AUTH_USER_MODEL = 'user_app.User'
 
 
 # JWT:
