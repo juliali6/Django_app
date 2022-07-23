@@ -36,8 +36,8 @@ load_dotenv(dotenv_path=env_path)
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Standard URL Login Required
