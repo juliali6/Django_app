@@ -162,5 +162,6 @@ cython_debug/
 # Media files
 media/
 
+
 .env
-.env
+.env/
