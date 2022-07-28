@@ -6,7 +6,6 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from profile_app.forms.registration import RegistrationForm
-# from profile_app.tasks import email_reg_task
 from profile_app.tasks import email_reg_task
 
 
