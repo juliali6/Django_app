@@ -9,9 +9,8 @@ from django.shortcuts import render
 def main_page(request):
     """Function for base page."""
 
-    posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()  # order_by = сортировка
-    # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Нужно еще больше текста'} for _ in range(100))
-    # (создать посты не обращаясь к базе данных)
+    posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()
+    # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': ''} for _ in range(100))
 
     context = {'title': 'Hello TMS', 'create_posts.py': posts}
     return render(request, 'main_page.html', context)

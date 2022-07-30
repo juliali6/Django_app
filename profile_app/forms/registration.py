@@ -12,8 +12,8 @@ class RegistrationForm(ModelForm):
         fields = ('username', 'password', 'email')
 
     def save(self, commit=True):
-        user = super(RegistrationForm, self).save(commit=False)  # не сохраняет пользователя в базе данных
-        user.set_password(self.cleaned_data['password'])  # хэширование пароля
+        user = super(RegistrationForm, self).save(commit=False)
+        user.set_password(self.cleaned_data['password'])
 
         if commit:
             user.save()

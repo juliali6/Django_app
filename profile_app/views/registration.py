@@ -43,4 +43,3 @@ class RegistrationView(View):
             'reg_form': form,
         }
         return render(request, 'registration_page.html', context)
-

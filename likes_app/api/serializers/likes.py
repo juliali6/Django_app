@@ -11,7 +11,6 @@ class LikePostSerializer(serializers.ModelSerializer):
         read_only_fields = ['user']
         # read_only_fields = True
 
-    # чтобы пользователь ничего не указывал
     publisher_user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
         source='user',

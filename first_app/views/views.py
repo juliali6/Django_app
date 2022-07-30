@@ -9,9 +9,8 @@ from django.shortcuts import render, redirect
 class MainPage(View):
     @staticmethod
     def get(request):
-        posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()  # order_by = сортировка
-        # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': 'Нужно еще больше текста'} for _ in range(100))
-        # (создать посты не обращаясь к базе данных)
+        posts = Post.objects.filter(is_public=True).order_by('-created_at', '-id').all()
+        # create_posts.py = ({'title': random.randint(100, 1_000_000), 'text': ''} for _ in range(100))
         # contact_list = Post.objects.all()
         paginator = Paginator(posts, 3)
         page_number = request.GET.get('page')
