@@ -72,7 +72,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'z22django.urls'
@@ -183,11 +183,11 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'django-cache'
 
 EMAIL_HOST = str(os.getenv('EMAIL_HOST'))
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))  # your email address
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))  # your email password
-EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 
 django_heroku.settings(locals())
